@@ -9,7 +9,12 @@ on:
 jobs:
   reminder:
     runs-on: ubuntu-latest
+
     environment: DUE_DATE
+    env:
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      MESSAGE: ${{ vars.MESSAGE }}
 
     steps:
       - uses: actions/checkout@v4
