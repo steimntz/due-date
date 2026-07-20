@@ -9,6 +9,7 @@ on:
 jobs:
   reminder:
     runs-on: ubuntu-latest
+    environment: DUE_DATE
 
     steps:
       - uses: actions/checkout@v4
