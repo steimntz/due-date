@@ -11,14 +11,21 @@ START_DATE = DUE_DATE - timedelta(weeks=40)
 today = date.today()
 
 weeks = (today - START_DATE).days // 7
+remaining = 40 - weeks
 days = (today - START_DATE).days
 
 if days % 7 == 0:
-    message = f"👶 Today begins week {weeks}!"
+    template = os.environ["MESSAGE"]
+
+    message = template.format(
+        weeks=weeks,
+        remaining=remaining,
+    )
     requests.post(
         f"https://api.telegram.org/bot{TOKEN}/sendMessage",
         json={
             "chat_id": CHAT_ID,
             "text": message,
+            "parse_mode": "HTML",
         },
     )
