@@ -6,7 +6,7 @@ TOKEN = os.environ["TELEGRAM_BOT_TOKEN"]
 CHAT_ID = os.environ["TELEGRAM_CHAT_ID"]
 
 DUE_DATE = date(2027, 3, 8)
-START_DATE = DUE_DATE - timedelta(weeks=38)
+START_DATE = DUE_DATE - timedelta(weeks=40)
 
 today = date.today()
 
